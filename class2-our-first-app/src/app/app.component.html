@@ -1,0 +1,64 @@
+<h1>Hello world</h1>
+<p>Our first Angular class :)</p>
+
+<!-- String interpolation {{}}-->
+
+<h3>Our first class is: {{title}}</h3>
+<h3>Classes for Angular: {{numberOfClasses}}</h3>
+
+<h4>First name: {{firstName}}</h4>
+<h4>Last name: {{lastName}}</h4>
+
+<!-- <h2>Full name is: {{returnFullName({firstName: firstName, lastName: lastName, age})}}</h2> -->
+
+<h2>Full name is: {{returnFullName({firstName, lastName, age})}}</h2>
+
+<hr/>
+<h1>Person Ivan</h1>
+
+<!-- It wont print anyting -->
+<h2>Props of Ivan {{personIvan}}</h2> 
+
+<h2>First name: {{personIvan.firstName}} </h2>
+<h2>Last name: {{personIvan.lastName}}</h2>
+<h2>Age: {{personIvan.age}}</h2>
+
+<h1>Full details of Ivan: {{returnFullName(personIvan)}}</h1>
+
+<!-- Property binding -->
+
+<hr />
+
+<h1 [innerText]="returnFullName({firstName, lastName, age})">
+
+</h1>
+
+<p [innerText]="angularWelcomeMessage"></p>
+<!-- <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Angular-Logo-PNG-Image-715x715.png"/> -->
+<img [src]="srcToAngularLogo" [alt]="altForPhoto"/>
+
+<hr />
+
+
+<!-- Event binding  -->
+
+<h1>Our class today: {{classOfToday}}</h1>
+
+<button type="button" (click)="changeSubjectName()" >Change class name</button>
+
+<input type="text" (keyup)="handleTextChange($event)" />
+<br />
+<span>{{randomInputValues}}</span>
+
+<br />
+<br />
+
+<!-- Default component selector -->
+<app-pets></app-pets>
+
+<!-- Square bracket selector -->
+<!-- <div app-pets ></div> -->
+
+<!-- Class selector for components -->
+<!-- <div class="app-pets"></div> -->
+

@@ -1,0 +1,8 @@
+<h1>Pet componenet grandchild to app and child to pets component</h1>
+
+<h3>Title from parent: {{titleFromParent}}</h3>
+
+
+<!-- Here on click we are sending the data to the parent. We can see that the method sendTitleToParent()
+is triggering the event that is decorated with the decorator @Output and sends data to the parent -->
+<button type="button" (click)="sendTitleToParent()" >Button from parent</button>

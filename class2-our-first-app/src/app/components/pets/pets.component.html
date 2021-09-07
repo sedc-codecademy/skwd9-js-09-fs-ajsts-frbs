@@ -1,0 +1,16 @@
+<h1 class="title">Hello world from our pets component</h1>
+
+<hr />
+<br />
+<br />
+
+<!-- The value we send can be different name of the property assigned with the @Input decorator, but the attribute MUST be the 
+same as the Input() decorator from the child. PS the  [titleFromParent] is the attribute and "titleFromParent" is the value.  -->
+<app-pet [titleFromParent]="titleFromParent" (titleToSendToParent)="onTitleSent($event)"></app-pet>
+
+<!-- The attriute  (titleToSendToParent) is the property decorated with @Output decorator in the child component "<app-pet></app-pet> is the child" 
+and with the method onTitleSent($event) created in the parent compoent, we are "grabbing/getting " the value that was previously sent from the child component. 
+-->
+<hr />
+
+<h1>Title I recieved {{titleIRecieve}}</h1>
