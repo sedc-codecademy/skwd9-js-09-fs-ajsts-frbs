@@ -1,0 +1,12 @@
+<!-- One binding way -->
+
+<!-- [value]="textToShow" -->
+<input type="text" (keyup)="handleInputName($event)" />
+
+<!-- Two way data binding -->
+<br />
+<hr />
+<span>Two way data binding:</span>
+<input type="text" [(ngModel)]="textToShow" />
+
+<h3>Text from input {{ textToShow }}</h3>
