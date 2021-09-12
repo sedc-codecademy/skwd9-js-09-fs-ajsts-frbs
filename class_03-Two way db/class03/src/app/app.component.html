@@ -1,0 +1,9 @@
+<app-games #data></app-games>
+
+<app-single-game [data]="data"></app-single-game>
+
+<h3>Single game component title: {{ titleFromSingleGameComponent }}</h3>
+
+<!-- <button (click)="sgc.printRandomText()">Click me</button> -->
+
+<button (click)="callMethodFromSingleGameComp()">Click me</button>
