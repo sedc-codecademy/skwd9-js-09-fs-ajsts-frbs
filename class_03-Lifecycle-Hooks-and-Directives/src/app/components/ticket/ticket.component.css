@@ -1,0 +1,7 @@
+.ticket {
+    background-color: yellow;
+    width: 300px;
+    padding: 2px;
+    margin: 2px;
+    cursor: pointer;
+}

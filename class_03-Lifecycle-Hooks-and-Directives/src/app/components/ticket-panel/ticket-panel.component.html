@@ -1,0 +1,43 @@
+<div class="filter-container">
+  <button
+    class="btn btn-new"
+    (click)="filterTicketsByStatus(ticketStatusEnum.NEW)"
+  >
+    New
+  </button>
+  <button
+    class="btn btn-progress"
+    (click)="filterTicketsByStatus(ticketStatusEnum.IN_PROGRESS)"
+  >
+    In Progress
+  </button>
+  <button
+    class="btn btn-done"
+    (click)="filterTicketsByStatus(ticketStatusEnum.DONE)"
+  >
+    Done
+  </button>
+  <button class="btn btn-clear" (click)="clearScreen()">Clear</button>
+</div>
+<app-ticket
+  [ticket]="currentTicket"
+  *ngFor="let currentTicket of filteredTickets"
+  (emitTicket)="displayTicket($event)"
+></app-ticket>
+<hr />
+<div class="ticket-screen">
+  <div class="screen-card" *ngIf="displayTicketOnScreen">
+    <div class="ticket-header">
+      <h3 class="ticket-title">
+        {{ ticketToDisplay.title }}
+      </h3>
+    </div>
+    <div class="ticket-content">
+      <p class="ticket-text">
+        {{ ticketToDisplay.text }}
+      </p>
+      <p class="ticket-assignee">Assignee: {{ ticketToDisplay.assignee }}</p>
+      <p class="ticket-status">Status: {{ ticketToDisplay.status }}</p>
+    </div>
+  </div>
+</div>
