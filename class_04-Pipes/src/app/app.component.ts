@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Person } from './interfaces/person';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pipes-example';
-  users: any[] = [
+  users: Person[] = [
     {
       id: 1,
       name: "Leanne Graham",
