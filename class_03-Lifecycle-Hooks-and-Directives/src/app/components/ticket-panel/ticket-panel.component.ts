@@ -34,6 +34,7 @@ export class TicketPanelComponent
   public ticketStatusEnum = TicketStatus;
   public displayTicketOnScreen: boolean = false;
   public ticketToDisplay: Ticket;
+  public randomColor: string;
 
   /*
   Component Hooks:
@@ -150,5 +151,10 @@ export class TicketPanelComponent
 
   clearScreen() {
     this.displayTicketOnScreen = false;
+  }
+
+  generateRandomColor() {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    this.randomColor = `#${randomColor}`
   }
 }

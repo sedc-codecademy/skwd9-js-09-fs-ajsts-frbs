@@ -1,4 +1,5 @@
-<div class="ticket" (click)="displayTicket(ticket)">
+<!-- ngClass -->
+<div appHoverShadow class="ticket" (click)="displayTicket(ticket)" [ngClass]="ticket.status">
   <div class="ticket__header">
     <h3 class="ticket__title">{{ ticket.title }}</h3>
   </div>

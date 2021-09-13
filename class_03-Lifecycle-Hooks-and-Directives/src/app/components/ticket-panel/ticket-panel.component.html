@@ -41,3 +41,16 @@
     </div>
   </div>
 </div>
+
+<!-- ngStyle -->
+<button class="btn btn-randomizer" (click)="generateRandomColor()">
+  Randomize This!
+</button>
+<p appHoverShadow class="random-colored-text" [ngStyle]="{ color: randomColor }">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro fugit
+  reiciendis repudiandae, dolorem iusto dolorum ipsum qui cumque voluptatem
+  minima, vitae animi ducimus voluptas, unde sit expedita! Quas animi soluta
+  tempore provident, fugit cupiditate sunt cum laboriosam dolores nam aliquam
+  sed inventore repellat nisi, voluptates quos corporis, adipisci distinctio.
+  Mollitia.
+</p>
