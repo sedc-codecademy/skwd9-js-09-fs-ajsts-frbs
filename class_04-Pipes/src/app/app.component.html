@@ -1,6 +1,10 @@
 <div class="container">
   <h1 class="container__title">User List</h1>
-  <div class="container__content" *ngFor="let user of users">
+  <input type="text" [(ngModel)]="filteredRating" />
+  <div
+    class="container__content"
+    *ngFor="let user of users | filter: +filteredRating"
+  >
     <div class="user">
       <div class="user__header">
         <div class="user__id">{{ user.id }}</div>
@@ -11,13 +15,13 @@
         <h3>Address</h3>
         <p>Street: {{ user.address.street }}</p>
         <p>Suite: {{ user.address.suite }}</p>
-        <p>City: {{ user.address.city | uppercase }}</p>
+        <p>City: {{ user.address.city | uppercase | shorten: 5 }}</p>
         <p>Zipcode: {{ user.address.zipcode }}</p>
       </div>
       <div class="user__footer">
         <p>Phone: {{ user.phone }}</p>
         <p>Website: {{ user.website }}</p>
-        <p>Birthdate: {{ user.dateOfBirth | date: "fullDate" }}</p>
+        <p>Birthdate: {{ user.dateOfBirth | date: "fullDate" | uppercase }}</p>
         <p>Hourly Rate: {{ user.hourlyRate | currency: "EUR" }}</p>
         <!-- {min-integer-digits}.{min-decimal-digits}-{max-decimal-digits} -->
         <p>Rating: {{ user.rating | number: "1.0-2" }}</p>
