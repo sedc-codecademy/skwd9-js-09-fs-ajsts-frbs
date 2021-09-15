@@ -1,1 +1,5 @@
-<p>car works!</p>
+<div class="car__container">
+    <p class="car__value">Brand: {{selectedCar.brand}}</p>
+    <p class="car__value">Model: {{selectedCar.model}}</p>
+    <p class="car__value">Rating: {{selectedCar.rating | percent:"1.0-2"}}</p>
+</div>

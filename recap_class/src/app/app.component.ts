@@ -10,6 +10,8 @@ import { Order } from './interfaces/order';
 })
 export class AppComponent {
   title = 'recap-class';
+  carToDisplay: Car;
+  displayCarFlag: boolean = false;
   cars: Car[] = [
     { id: 1, brand: CarBrand.DACIA, model: 'Sandero', rating: 0.807 },
     { id: 2, brand: CarBrand.VOLKSWAGEN, model: 'Golf', rating: 0.736 },
@@ -64,5 +66,7 @@ export class AppComponent {
   ];
   displayCar(car: Car) {
     console.log('parent:', car);
+    this.displayCarFlag = true;
+    this.carToDisplay = car;
   }
 }

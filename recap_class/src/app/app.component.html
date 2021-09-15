@@ -3,7 +3,6 @@
 </header>
 <main class="main">
   <div class="order__showcase">
-
     <app-orders
       *ngFor="let orderItem of orders"
       [boundOrder]="orderItem"
@@ -15,6 +14,8 @@
     <app-orders [order]="orders[2]"></app-orders>
     <app-orders [order]="orders[3]"></app-orders>
     <app-orders [order]="orders[4]"></app-orders> -->
-    
+  </div>
+  <div class="car__showcase">
+    <app-car *ngIf="displayCarFlag" [selectedCar]="carToDisplay"></app-car>
   </div>
 </main>

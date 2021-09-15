@@ -1,8 +1,8 @@
 <div class="order">
-  <p class="order__field">Customer: {{ boundOrder.customer }}</p>
-  <p class="order__field">Order Date: {{ boundOrder.orderDate }}</p>
-  <p class="order__field">Price: {{ boundOrder.price }}</p>
-  <p class="order__field">Active: {{ boundOrder.active ? "Yes" : "No" }}</p>
+  <p class="order__field">Customer: {{ boundOrder.customer | uppercase }}</p>
+  <p class="order__field">Order Date: {{ boundOrder.orderDate | date:"fullDate"}}</p>
+  <p class="order__field">Price: {{ boundOrder.price | currency: "EUR" }}</p>
+  <p class="order__field">Active: {{ (boundOrder.active ? "Yes" : "No") | uppercase }}</p>
   <button (click)="displayCar(boundOrder.car)">Display Car</button>
-  <hr>
+  <hr />
 </div>
