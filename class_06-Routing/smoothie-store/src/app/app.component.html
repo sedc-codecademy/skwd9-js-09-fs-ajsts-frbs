@@ -1,0 +1,27 @@
+<div class="costum-container">
+  <div><h2>Logo</h2></div>
+
+  <ul class="container__list">
+    <li
+      routerLink=""
+      routerLinkActive="custom-active-class"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <!-- <a href="">Home</a> -->
+      Home
+      <div></div>
+    </li>
+    <li routerLink="/smoothies" routerLinkActive="custom-active-class">
+      <!-- <a href="smoothies"> Smoothie List</a> -->
+      Smoothie List
+      <div></div>
+    </li>
+    <li [routerLink]="['add-smoothie']" routerLinkActive="custom-active-class">
+      <!-- <a href="add-smoothie">Add smoothie</a> -->
+      Add smoothie
+      <div></div>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>

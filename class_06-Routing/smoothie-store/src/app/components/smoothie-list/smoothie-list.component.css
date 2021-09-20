@@ -1,0 +1,16 @@
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 13rem;
+}
+
+.card {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  max-width: 200px;
+  flex-grow: 1;
+}

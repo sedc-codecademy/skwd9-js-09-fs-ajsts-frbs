@@ -1,0 +1,25 @@
+<h1>Smoothies:</h1>
+
+<div class="card-container">
+  <div *ngFor="let smoothie of smoothies" class="card" style="width: 18rem">
+    <img
+      class="card-img-top card-image"
+      src="{{ smoothie.imageUrl }}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ smoothie.name }}</h5>
+      <p class="card-text">
+        {{ smoothie.description }}
+      </p>
+      <p class="card-text">
+        {{ smoothie.price }}
+      </p>
+      <a
+        [routerLink]="['/smoothie-to-edit', smoothie.id]"
+        class="btn btn-primary"
+        >See smoothie</a
+      >
+    </div>
+  </div>
+</div>

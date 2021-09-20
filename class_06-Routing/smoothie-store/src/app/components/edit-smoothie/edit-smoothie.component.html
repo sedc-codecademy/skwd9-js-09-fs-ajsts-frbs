@@ -1,0 +1,24 @@
+<h2
+  style="cursor: pointer"
+  [routerLink]="['/smoothie-to-edit', smoothieToEdit.id]"
+>
+  Go back
+</h2>
+
+<input type="text" [(ngModel)]="newName" />
+
+<br />
+<br />
+
+<input type="text" [(ngModel)]="newPrice" />
+
+<br />
+
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="saveChanges()"
+  [disabled]="!hasInputChanged()"
+>
+  Save changes
+</button>
