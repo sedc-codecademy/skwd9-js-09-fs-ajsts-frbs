@@ -1,0 +1,203 @@
+<!-- <form (ngSubmit)="onFormSubmit(expenseForm)" #expenseForm="ngForm"> -->
+<form (ngSubmit)="onFormSubmit()" #expenseForm="ngForm">
+  <div
+    class="basic-data"
+    ngModelGroup="basicData"
+    #basicDataGroup="ngModelGroup"
+  >
+    <div class="form-group">
+      <label for="expense-title">Title</label>
+      <input
+        type="text"
+        class="form-input"
+        id="expense-title"
+        ngModel
+        name="expenseTitle"
+        required
+        #expenseTitle="ngModel"
+      />
+    </div>
+    <p class="help-block" *ngIf="!expenseTitle.valid && expenseTitle.touched">
+      This field is required!
+    </p>
+    <div class="form-group">
+      <label for="expense-amount">Amount</label>
+      <input
+        type="text"
+        class="form-input"
+        id="expense-amount"
+        ngModel
+        name="expenseAmount"
+      />
+    </div>
+    <div class="form-group">
+      <label for="expense-date">Date</label>
+      <input
+        type="date"
+        class="form-input"
+        id="expense-date"
+        ngModel
+        name="expenseDate"
+      />
+    </div>
+    <p
+      class="help-block"
+      *ngIf="!basicDataGroup.valid && basicDataGroup.touched"
+    >
+      Basic data is invalid!
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="expense-priority">Expense Priority</label>
+    <select
+      id="expense-priority"
+      class="form-input"
+      ngModel
+      name="expensePriority"
+      [ngModel]="expensePriorityDefault"
+    >
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="expense-comment" class="form-label">Comment</label>
+    <textarea
+      ngModel
+      name="expenseComment"
+      id="expense-comment"
+      cols="30"
+      rows="3"
+      [maxlength]="maximumCommentSize"
+      [(ngModel)]="expenseCommentValue"
+    ></textarea>
+    <p class="comment-length">
+      {{ expenseCommentValue.length }}/{{ maximumCommentSize }}
+    </p>
+  </div>
+  <div class="form-group">
+    <div class="radio" *ngFor="let type of paymentType">
+      <input
+        type="radio"
+        name="expenseType"
+        [id]="type"
+        [value]="type"
+        ngModel
+      />
+      <label [for]="type">{{ type }}</label>
+    </div>
+  </div>
+  <button type="submit" [disabled]="expenseForm.invalid" class="btn">
+    Submit
+  </button>
+</form>
+<hr />
+<!-- <form [formGroup]="signupForm" (ngSubmit)="onReactiveFormSubmit()">
+  <div class="form-group">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-input"
+      id="username"
+      autocomplete="off"
+      formControlName="username"
+    />
+  </div>
+  <div class="form-group">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="text"
+      id="email"
+      class="form-input"
+      autocomplete="off"
+      formControlName="email"
+    />
+  </div>
+  <p
+    class="help-block"
+    *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched"
+  >
+    Please enter a valid email!
+  </p>
+  <div class="form-group">
+    <div class="radio">
+      <input
+        type="radio"
+        name="gender"
+        id="male"
+        value="male"
+        formControlName="gender"
+      />
+      <label for="male">Male</label>
+    </div>
+    <div class="radio">
+      <input
+        type="radio"
+        name="gender"
+        id="female"
+        value="female"
+        formControlName="gender"
+      />
+      <label for="female">Female</label>
+    </div>
+  </div>
+  <button class="btn" type="submit">Submit</button>
+</form> -->
+<form [formGroup]="signupForm" (ngSubmit)="onReactiveFormSubmit()">
+  <div class="form-subgroup" formGroupName="userData">
+    <div class="form-group">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-input"
+        id="username"
+        autocomplete="off"
+        formControlName="username"
+      />
+    </div>
+    <!-- Because username is in the userData group now, you have to reference it through the userData group. userData.username -->
+    <p *ngIf="signupForm.get('userData.username')?.errors?.nameIsForbidden" class="help-block">This username is blocked!</p>
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="text"
+        id="email"
+        class="form-input"
+        autocomplete="off"
+        formControlName="email"
+      />
+    </div>
+    <p
+      class="help-block"
+      *ngIf="
+        !signupForm.get('email')?.valid && signupForm.get('email')?.touched
+      "
+    >
+      Please enter a valid email!
+    </p>
+  </div>
+  <div class="form-group">
+    <div class="radio">
+      <input
+        type="radio"
+        name="gender"
+        id="male"
+        value="male"
+        formControlName="gender"
+      />
+      <label for="male">Male</label>
+    </div>
+    <div class="radio">
+      <input
+        type="radio"
+        name="gender"
+        id="female"
+        value="female"
+        formControlName="gender"
+      />
+      <label for="female">Female</label>
+    </div>
+  </div>
+  <button class="btn" type="submit">Submit</button>
+</form>
