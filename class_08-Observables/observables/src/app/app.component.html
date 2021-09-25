@@ -1,0 +1,33 @@
+<h2 [routerLink]="['/counter']">Go to counter component</h2>
+<br />
+<h2 [routerLink]="['/random']">Go to random component</h2>
+<br />
+<!-- Example 1 -->
+Example 1
+<h3 *ngFor="let name of namesSubsribed">{{ name }}</h3>
+<hr />
+<br />
+
+<hr />
+<br />
+Example 4
+<h3 *ngFor="let name of namesFromExample4">{{ name }}</h3>
+
+<br />
+
+<hr />
+<br />
+Example 5
+{{ randomInput }}
+
+<br />
+<hr />
+<span>{{ movie.name }}</span>
+<br />
+<span>{{ movie.yearOfRelease }}</span>
+<br />
+<span>{{ movie.producer }}</span>
+<br />
+<span>{{ movie.raiting }}</span>
+
+<router-outlet></router-outlet>
