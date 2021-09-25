@@ -157,7 +157,12 @@
       />
     </div>
     <!-- Because username is in the userData group now, you have to reference it through the userData group. userData.username -->
-    <p *ngIf="signupForm.get('userData.username')?.errors?.nameIsForbidden" class="help-block">This username is blocked!</p>
+    <p
+      *ngIf="signupForm.get('userData.username')?.errors?.nameIsForbidden"
+      class="help-block"
+    >
+      This username is blocked!
+    </p>
     <div class="form-group">
       <label for="email" class="form-label">Email</label>
       <input
@@ -198,6 +203,16 @@
       />
       <label for="female">Female</label>
     </div>
+  </div>
+  <div class="hobbies-container" formArrayName="hobbies">
+    <h4>Your hobbies!</h4>
+    <div
+      class="form-group"
+      *ngFor="let control of getHobbyControls(); let i = index"
+    >
+      <input type="text" class="form-input" [formControlName]="i" />
+    </div>
+    <button type="button" class="btn" (click)="onAddHobby()">Add Hobby</button>
   </div>
   <button class="btn" type="submit">Submit</button>
 </form>

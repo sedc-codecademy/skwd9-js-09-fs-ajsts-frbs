@@ -1,5 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { Expense } from './interfaces/expense';
 import { ExpenseDataService } from './services/expense-data.service';
 
@@ -39,10 +46,14 @@ export class AppComponent implements OnInit {
     // THIS IS WITH A FORM GROUP (SECOND REACTIVE FORM)
     this.signupForm = new FormGroup({
       userData: new FormGroup({
-        username: new FormControl(null, [Validators.required, this.blockedNamesValidation]),
+        username: new FormControl(null, [
+          Validators.required,
+          this.blockedNamesValidation,
+        ]),
         email: new FormControl(null, [Validators.required, Validators.email]),
       }),
       gender: new FormControl('female'),
+      hobbies: new FormArray([]),
     });
   }
 
@@ -77,6 +88,15 @@ export class AppComponent implements OnInit {
     console.log(this.signupForm);
   }
 
+  getHobbyControls(): AbstractControl[] {
+    return (<FormArray>this.signupForm.get('hobbies')).controls;
+  }
+
+  onAddHobby() {
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.signupForm.get('hobbies'))?.push(control);
+  }
+
   blockedNamesValidation = (
     control: FormControl
   ): { [key: string]: boolean } | null => {
@@ -84,7 +104,7 @@ export class AppComponent implements OnInit {
       return { nameIsForbidden: true };
     }
     return null;
-  }
+  };
 }
 
 // Form States
