@@ -1,0 +1,19 @@
+<h3>List of our products:</h3>
+
+<div class="container">
+  <div class="card" *ngFor="let product of products">
+    <h3>{{ product.title }}</h3>
+    <h3>{{ product.description }}</h3>
+    <h3>{{ product.category }}</h3>
+
+    <img class="card__image" src="{{ product.image }}" alt="image" />
+
+    <button
+      [routerLink]="['/edit-product', product.id]"
+      (click)="setProductToBeUpdated(product.id)"
+    >
+      Edit product
+    </button>
+    <button>Delete product</button>
+  </div>
+</div>
