@@ -1,0 +1,43 @@
+<mat-stepper style="width: 50%">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your email</ng-template>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="email"
+          placeholder="ex. jondoe@gmail.com"
+        />
+      </mat-form-field>
+      <div class="step-actions">
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your password</ng-template>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="password" matInput />
+      </mat-form-field>
+      <div class="step-actions">
+        <button mat-stroked-button color="primary" matStepperPrevious>
+          Previous
+        </button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>You can submit your data!</ng-template>
+      <div class="step-actions">
+        <button mat-stroked-button color="primary" matStepperPrevious>
+            Previous
+          </button>
+          <button mat-raised-button color="primary" (click)="onSubmitStepper()">Submit</button>
+      </div>
+  </mat-step>
+</mat-stepper>

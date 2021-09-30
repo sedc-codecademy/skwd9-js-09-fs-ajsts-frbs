@@ -1,0 +1,10 @@
+<mat-toolbar class="header" color="primary">
+  <span class="header__brand">SEDC Shop</span>
+</mat-toolbar>
+<nav class="navigation__list">
+  <mat-list>
+    <mat-list-item *ngFor="let nav of navigationListItems">
+      {{ nav | titlecase }}
+    </mat-list-item>
+  </mat-list>
+</nav>
