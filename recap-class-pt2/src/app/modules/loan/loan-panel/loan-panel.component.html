@@ -1,0 +1,20 @@
+<div class="loan-container">
+  <button mat-raised-button color="primary" class="btn" (click)="onOpenDialog()">New Loan</button>
+  <mat-card
+    *ngFor="let loan of loanList"
+    class="loan-card"
+    (click)="onDisplayLoan(loan)"
+  >
+    <mat-card-header>
+      <mat-card-title>{{ loan.id }}</mat-card-title>
+      <mat-card-subtitle>{{ loan.client }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="loan-data">Amount: {{ loan.amount }}</p>
+      <p class="loan-data">Status: {{ loan.status | titlecase }}</p>
+      <p class="loan-data">Installments: {{ loan.installments }}</p>
+    </mat-card-content>
+  </mat-card>
+  <hr/>
+  <app-loan-card [displayedLoan]="loanToDisplay" *ngIf="loanToDisplay"></app-loan-card>
+</div>
