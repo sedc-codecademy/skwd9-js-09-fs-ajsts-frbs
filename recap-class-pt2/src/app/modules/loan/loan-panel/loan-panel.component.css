@@ -9,3 +9,7 @@
 .btn {
     margin-bottom: 2rem;
 }
+
+.loan-actions-container {
+    border-top: 1px solid #303030;
+}
