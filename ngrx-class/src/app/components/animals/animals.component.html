@@ -1,0 +1,40 @@
+<hr />
+<div *ngFor="let animal of animals">
+  <span>Name: {{ animal.name }}</span>
+  <br />
+  <span>Age: {{ animal.age }}</span>
+  <br />
+  <span>Breed: {{ animal.breed }}</span>
+
+  <button (click)="editAnimal(animal.id)">Edit Animal</button>
+  <br />
+  <br />
+
+  <div *ngIf="animal.isEditing">
+    <h3>Animal to edit:</h3>
+
+    <form [formGroup]="editAnimalForm" (ngSubmit)="submitForm()">
+      <label for="name">Name:</label>
+      <input type="text" name="name" formControlName="name" />
+      <br />
+      <label for="breed">Breed:</label>
+      <input type="text" name="breed" formControlName="breed" />
+      <button>Save edit animal</button>
+    </form>
+  </div>
+</div>
+<br />
+<hr />
+
+<hr />
+<br />
+<h3>Only dogs allowed :)</h3>
+<div *ngFor="let dog of dogs">
+  <span>Name: {{ dog.name }}</span>
+  <br />
+  <span>Age: {{ dog.age }}</span>
+  <br />
+  <span>Breed: {{ dog.breed }}</span>
+  <br />
+  <br />
+</div>

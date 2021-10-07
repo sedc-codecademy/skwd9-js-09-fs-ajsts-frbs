@@ -1,0 +1,10 @@
+<h3>Counter: {{ counter }}</h3>
+<button (click)="incrementCounter()">Increment</button>
+<button (click)="decrementCounter()">Decrement</button>
+<br />
+
+<h4>Name from store: {{ name }}</h4>
+<input type="text" [(ngModel)]="firstName" />
+<button (click)="handleFirstName()">Change Name</button>
+<br />
+<input type="text" [formControl]="reactiveFirstName" />

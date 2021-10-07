@@ -1,0 +1,15 @@
+<div>
+  <h3>Add Animal:</h3>
+  <form [formGroup]="addAnimal" (ngSubmit)="submitForm()">
+    <label for="name">Name</label>
+    <input type="text" name="name" formControlName="name" />
+    <br />
+    <label for="age">Age</label>
+    <input type="text" name="age" formControlName="age" />
+    <br />
+    <label for="breed">Breed</label>
+    <input type="text" name="breed" formControlName="breed" />
+    <br />
+    <button>Add Animal</button>
+  </form>
+</div>
