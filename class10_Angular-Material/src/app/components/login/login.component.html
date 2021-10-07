@@ -1,0 +1,51 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle
+      >Please enter your correct login credentials.</mat-card-subtitle
+    >
+  </mat-card-header>
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onLoginUser()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="Ex. john.doe@outlook.com"
+        autocomplete="off"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="8 character, 1 special, 1 number, 1 capital letter"
+        autocomplete="off"
+        formControlName="password"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Pricing</mat-label>
+      <mat-select formControlName="pricingType">
+        <mat-option *ngFor="let pricing of pricings" [value]="pricing">{{
+          pricing | titlecase
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-radio-group formControlName="gender">
+      <mat-radio-button value="male">Male</mat-radio-button>
+      <mat-radio-button value="female">Female</mat-radio-button>
+    </mat-radio-group>
+    <mat-checkbox>Subscribed</mat-checkbox>
+    <button
+      [disabled]="!loginForm.valid"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="btn"
+    >
+      Login
+    </button>
+  </form>
+</mat-card>
