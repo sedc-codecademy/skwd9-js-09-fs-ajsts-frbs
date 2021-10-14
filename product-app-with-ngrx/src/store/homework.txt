@@ -1,0 +1,13 @@
+Implement delete functionality for removing a product.
+
+As a hint in the products-repository.service.ts I've added the method to make the delete api call, 
+and in the products.service.ts the method removeProduct is calling the very same method from the repository, the same approach we do so far. Please have a look at it,
+and if you have questions about it please feel free to ping us.
+
+1. Create action delete product 
+2. Create effect for delete product that will listen to this action.
+3. In the effect call the removeProduct method from the products.service (as we did for update the product) :) 
+4. In the products.component.ts create method handleRemoveProduct(). and as you guessed will accept id as property, and 
+it has to dispatch the action we have created, which is removeProduct =)
+
+**** Use the implementation of updateProduct as an inspiration and a guide :)

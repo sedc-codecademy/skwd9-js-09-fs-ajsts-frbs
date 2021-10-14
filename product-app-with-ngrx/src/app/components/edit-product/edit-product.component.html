@@ -1,0 +1,13 @@
+<form [formGroup]="editProductForm" (ngSubmit)="submitForm()">
+  <label for="name">Name</label>
+  <input formControlName="name" type="text" type="name" id="name" />
+  <br />
+  <label for="description">Description</label>
+  <input
+    formControlName="description"
+    type="text"
+    name="description"
+    id="description"
+  />
+  <button>Submit</button>
+</form>
