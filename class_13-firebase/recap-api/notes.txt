@@ -1,0 +1,9 @@
+npm init --y
+npm i -D typescript ts-node
+create tsconfig
+npm i -D @types/node
+npm i express
+npm i -D @types/express
+npm install firebase
+npm i express-session
+npm i uuid
